@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    
+
     // COMPLETED (10) Override onOptionsItemSelected
     // COMPLETED (11) Within this method, get the ID from the MenuItem
     // COMPLETED (12) If the ID equals R.id.action_refresh, create and set a new adapter on the RecyclerView and return true
