@@ -6,6 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     /*
@@ -39,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
      */
     private TextView mLifecycleDisplay;
 
-    // TODO (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
+    // COMPLETED (1) Declare and instantiate a static ArrayList of Strings called mLifecycleCallbacks
+    private static List<String> mLifecycleCallbacks = new ArrayList<>();
 
     /**
      * Called when the activity is first created. This is where you should do all of your normal
@@ -71,10 +75,13 @@ public class MainActivity extends AppCompatActivity {
             }
         }
 
-        // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
+        // COMPLETED (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
+        for (int i = mLifecycleCallbacks.size() - 1; i >= 0; i--) {
+             mLifecycleDisplay.append(mLifecycleCallbacks.get(i) + "\n");
 
-        // TODO (5) Clear mLifecycleCallbacks after iterating through it
-
+        }
+        // COMPLETED (5) Clear mLifecycleCallbacks after iterating through it
+        mLifecycleCallbacks.clear();
         logAndAppend(ON_CREATE);
     }
 
@@ -133,8 +140,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        // TODO (2) Add the ON_STOP String to the front of mLifecycleCallbacks
-
+        // COMPLETED (2) Add the ON_STOP String to the front of mLifecycleCallbacks
+        mLifecycleCallbacks.add(0, ON_STOP);
         logAndAppend(ON_STOP);
     }
 
@@ -160,8 +167,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
 
-        // TODO (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
-
+        // COMPLETED (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
+        mLifecycleCallbacks.add(0, ON_DESTROY);
         logAndAppend(ON_DESTROY);
     }
 
