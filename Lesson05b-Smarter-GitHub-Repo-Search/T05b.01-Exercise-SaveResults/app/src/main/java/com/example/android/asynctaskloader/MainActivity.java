@@ -65,12 +65,8 @@ public class MainActivity extends AppCompatActivity {
         if (savedInstanceState != null) {
             if (savedInstanceState.containsKey(QUERY_URL_EXTRA) &&
                     savedInstanceState.containsKey(SEARCH_RESULTS_RAW_JSON)) {
-
-                String urlString = savedInstanceState.getString(QUERY_URL_EXTRA);
-                String jsonString = savedInstanceState.getString(SEARCH_RESULTS_RAW_JSON);
-
-                mUrlDisplayTextView.setText(urlString);
-                mSearchResultsTextView.setText(jsonString);
+                mUrlDisplayTextView.setText(savedInstanceState.getString(QUERY_URL_EXTRA));
+                mSearchResultsTextView.setText(savedInstanceState.getString(SEARCH_RESULTS_RAW_JSON));
             }
         }
     }
