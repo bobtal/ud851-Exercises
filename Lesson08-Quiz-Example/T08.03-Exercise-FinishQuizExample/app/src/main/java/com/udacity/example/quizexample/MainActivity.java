@@ -89,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void nextWord() {
 
-        // Change button text
-        mButton.setText(getString(R.string.show_definition));
-
         // COMPLETED (3) Go to the next word in the Cursor, show the next word and hide the definition
         // Note that you shouldn't try to do this if the cursor hasn't been set yet.
         // If you reach the end of the list of words, you should start at the beginning again.
@@ -99,6 +96,9 @@ public class MainActivity extends AppCompatActivity {
             if (!mData.moveToNext()) {
                 mData.moveToFirst();
             }
+
+            // Change button text
+            mButton.setText(getString(R.string.show_definition));
 
             int wordColumnIndex = mData.getColumnIndex(DroidTermsExampleContract.COLUMN_WORD);
             int definitionColumnIndex = mData.getColumnIndex(DroidTermsExampleContract.COLUMN_DEFINITION);
